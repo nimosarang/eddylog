@@ -1,5 +1,6 @@
 package com.eddylog.api.domain;
 
+import com.eddylog.api.request.PostEdit;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,4 +31,19 @@ public class Post {
         this.content = content;
     }
 
+//    public void change(String title, String content){
+//        this.title = title;
+//        this.content = content;
+//    }
+    public  PostEditor.PostEditorBuilder toEditor() { //build 하지 않은 빌더 클래스 자체를 넘겨줌
+        return PostEditor.builder()
+            .title(title)
+            .content(content); //build로 데이터 픽스 노노
+    }
+
+    public void edit(PostEditor postEditor) {
+        //픽스된 postEditor가 넘어온다
+        title = postEditor.getTitle();
+        content = postEditor.getContent();
+    }
 }

@@ -11,6 +11,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.eddylog.api.domain.Post;
 import com.eddylog.api.repository.PostRepository;
 import com.eddylog.api.request.PostCreate;
+import com.eddylog.api.request.PostEdit;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -134,24 +135,50 @@ class PostControllerTest {
     }
 
     @Test
-    @DisplayName("글 여러개 조회")
+    @DisplayName("페이지를 0으로 요청하면 첫 페이지를 가져온다.")
     void test5() throws Exception {
         //given (글을 저장하고)
-        List<Post> requestPosts = IntStream.range(1,31)
+        List<Post> requestPosts = IntStream.range(0,20)
             .mapToObj(i -> Post.builder()
-                .title("에디 제목 " + i)
-                .content("반포자이 " + i)
+                .title("foo" + i)
+                .content("bar" + i)
                 .build())
             .collect(Collectors.toList());
 
         postRepository.saveAll(requestPosts);
 
-
         //expected (when & ttfrhen) - 조회 API를 통해서 JSON 형태로 응답이 잘 내려오는지 확인
-        mockMvc.perform(get("/posts?page=0")
+        mockMvc.perform(get("/posts?page=0&size=10")
                 .contentType(APPLICATION_JSON))
             .andExpect(status().isOk())
+            .andExpect(jsonPath("$.length()",is(10)))
+            .andExpect(jsonPath("$[0].title").value("foo19"))
+            .andExpect(jsonPath("$[0].content").value("bar19"))
             .andDo(print());
     }
 
+    @Test
+    @DisplayName("글 제목 수정")
+    void test7() throws Exception {
+        //given (글을 저장하고)
+        Post post = Post.builder()
+            .title("에디")
+            .content("반포자이")
+            .build();
+
+        postRepository.save(post);
+
+        PostEdit postEdit = PostEdit.builder()
+            .title("니모")
+            .content("반포자이")
+            .build();
+
+        //expected (when & ttfrhen) - 조회 API를 통해서 JSON 형태로 응답이 잘 내려오는지 확인
+        mockMvc.perform(patch("/posts/{postId}",post.getId()) // PATCH /posts/{postId}
+                .contentType(APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(postEdit))
+            )
+            .andExpect(status().isOk())
+            .andDo(print());
+    }
 }
