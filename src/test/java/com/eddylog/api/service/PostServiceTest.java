@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.data.domain.Sort.Direction.*;
 
 import com.eddylog.api.domain.Post;
+import com.eddylog.api.exception.PostNotFound;
 import com.eddylog.api.repository.PostRepository;
 import com.eddylog.api.request.PostCreate;
 import com.eddylog.api.request.PostEdit;
@@ -54,7 +55,6 @@ class PostServiceTest {
         Post post = postRepository.findAll().get(0);
         assertEquals("제목입니다.", post.getTitle());
         assertEquals("내용입니다.", post.getContent());
-
     }
 
     @Test
@@ -96,14 +96,12 @@ class PostServiceTest {
             .size(10)
             .build();
 
-
         //when (조회하는 서비스를 통해서 요청해서)
         List<PostResponse> posts = postService.getList(postSearch);
 
         //then (엔티티를 잘 가져오는지를 확인)
         assertEquals(10L, posts.size());
         assertEquals("foo19", posts.get(0).getTitle());
-
     }
 
     @Test
@@ -130,7 +128,6 @@ class PostServiceTest {
             .orElseThrow(() -> new RuntimeException("글이 존재하지 않습니다. id=" + post.getId()));
         assertEquals("니모",changePost.getTitle());
         assertEquals("반포자이",changePost.getContent());
-
     }
 
     @Test
@@ -156,6 +153,78 @@ class PostServiceTest {
         Post changePost = postRepository.findById(post.getId())
             .orElseThrow(() -> new RuntimeException("글이 존재하지 않습니다. id=" + post.getId()));
         assertEquals("초가집",changePost.getContent());
+    }
+
+    @Test
+    @DisplayName("게시글 삭제")
+    void test6(){
+        //given 이런 데이터가 주어지면
+        Post post = Post.builder()
+            .title("에디")
+            .content("반포자이")
+            .build();
+        postRepository.save(post);
+
+        //when 수행 했을 때
+        postService.delete(post.getId());
+
+        //then 이런 결과가 나올 수 있다
+        assertEquals(0,postRepository.count());
+    }
+
+    @Test
+    @DisplayName("글 1개 조회 - 존재하지 않는 글")
+    void test7(){
+        //given
+        Post post = Post.builder()
+            .title("에디맨")
+            .content("반포자이")
+            .build();
+        postRepository.save(post);
+
+        // post.getId() // primary_id = 1
+
+        //expected
+        assertThrows(PostNotFound.class, () -> {
+                postService.get(post.getId() + 1L);
+            });
+    }
+
+    @Test
+    @DisplayName("게시글 삭제 - 존재하지 않는 글")
+    void test8(){
+        //given
+        Post post = Post.builder()
+            .title("에디맨")
+            .content("반포자이")
+            .build();
+        postRepository.save(post);
+
+        //expected
+        assertThrows(PostNotFound.class, () -> {
+            postService.delete(post.getId() + 1L);
+        });
+    }
+
+    @Test
+    @DisplayName("글 내용 수정 - 존재하지 않는 글")
+    void test9(){
+        //given
+        Post post = Post.builder()
+            .title("에디")
+            .content("반포자이")
+            .build();
+        postRepository.save(post);
+
+        PostEdit postEdit = PostEdit.builder()
+            .title("에디")
+            .content("초가집")
+            .build();
+
+        //expected
+        assertThrows(PostNotFound.class, () -> {
+            postService.edit(post.getId() + 1L, postEdit);
+        });
 
     }
 

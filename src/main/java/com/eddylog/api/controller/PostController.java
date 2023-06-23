@@ -1,6 +1,7 @@
 package com.eddylog.api.controller;
 
 import com.eddylog.api.domain.Post;
+import com.eddylog.api.exception.InvalidRequest;
 import com.eddylog.api.request.PostCreate;
 import com.eddylog.api.request.PostEdit;
 import com.eddylog.api.request.PostSearch;
@@ -16,6 +17,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -37,6 +39,7 @@ public class PostController {
 
     @PostMapping("/posts")
     public void post(@RequestBody @Valid PostCreate request) {
+        request.validate();
         postService.write(request);
     }
 
@@ -55,4 +58,8 @@ public class PostController {
        postService.edit(postId,request);
     }
 
+    @DeleteMapping("/posts/{postId}")
+    public void delete(@PathVariable Long postId){
+        postService.delete(postId);
+    }
 }

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+export NODE_PATH='/Users/eddy/Desktop/projects/eddylog/eddylog/nodeenv-16/lib/node_modules'
+export NPM_CONFIG_PREFIX='/Users/eddy/Desktop/projects/eddylog/eddylog/nodeenv-16'
+export npm_config_prefix='/Users/eddy/Desktop/projects/eddylog/eddylog/nodeenv-16'
+exec 'nodeenv-16/bin/node' "$@"

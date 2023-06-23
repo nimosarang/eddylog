@@ -138,7 +138,7 @@ class PostControllerTest {
     @DisplayName("페이지를 0으로 요청하면 첫 페이지를 가져온다.")
     void test5() throws Exception {
         //given (글을 저장하고)
-        List<Post> requestPosts = IntStream.range(0,20)
+        List<Post> requestPosts = IntStream.range(0, 20)
             .mapToObj(i -> Post.builder()
                 .title("foo" + i)
                 .content("bar" + i)
@@ -151,7 +151,7 @@ class PostControllerTest {
         mockMvc.perform(get("/posts?page=0&size=10")
                 .contentType(APPLICATION_JSON))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$.length()",is(10)))
+            .andExpect(jsonPath("$.length()", is(10)))
             .andExpect(jsonPath("$[0].title").value("foo19"))
             .andExpect(jsonPath("$[0].content").value("bar19"))
             .andDo(print());
@@ -174,11 +174,79 @@ class PostControllerTest {
             .build();
 
         //expected (when & ttfrhen) - 조회 API를 통해서 JSON 형태로 응답이 잘 내려오는지 확인
-        mockMvc.perform(patch("/posts/{postId}",post.getId()) // PATCH /posts/{postId}
+        mockMvc.perform(patch("/posts/{postId}", post.getId()) // PATCH /posts/{postId}
                 .contentType(APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(postEdit))
             )
             .andExpect(status().isOk())
             .andDo(print());
     }
+
+    @Test
+    @DisplayName("글 삭제")
+    void test8() throws Exception {
+        //given
+        Post post = Post.builder()
+            .title("에디")
+            .content("니모사랑")
+            .build();
+
+        postRepository.save(post);
+
+        // expected mockMvc로 수행을 하고 어떠한 결과 값 까지 기대를 한다!
+        mockMvc.perform(delete("/posts/{postId}", post.getId())
+                .contentType(APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andDo(print());
+    }
+
+    @Test
+    @DisplayName("존재하지 않는 게시글 조회")
+    void test09() throws Exception {
+        //expected
+        mockMvc.perform(delete("/posts/{postId}",1L)
+            .contentType(APPLICATION_JSON))
+            .andExpect(status().isNotFound())
+            .andDo(print());
+    }
+
+    @Test
+    @DisplayName("존재하지 않는 게시글 수정")
+    void test10() throws Exception {
+        //given
+        PostEdit postEdit = PostEdit.builder()
+            .title("니모")
+            .content("반포자이")
+            .build();
+
+        //expected (when & ttfrhen) - 조회 API를 통해서 JSON 형태로 응답이 잘 내려오는지 확인
+        mockMvc.perform(patch("/posts/{postId}", 1L) // PATCH /posts/{postId}
+                .contentType(APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(postEdit))
+            )
+            .andExpect(status().isNotFound())
+            .andDo(print());
+
+    }
+
+    @Test
+    @DisplayName("게시글 작성시 제목에 '바보'는 포함될 수 없다.")
+    void test11() throws Exception {
+        //given
+        PostCreate request = PostCreate.builder()
+            .title("나는 바보입니다.")
+            .content("반포자이")
+            .build();
+
+        String json = objectMapper.writeValueAsString(request);
+
+        //when
+        mockMvc.perform(post("/posts")
+                .contentType(APPLICATION_JSON)
+                .content(json)
+            )
+            .andExpect(status().isBadRequest())
+            .andDo(print());
+    }
+
 }
