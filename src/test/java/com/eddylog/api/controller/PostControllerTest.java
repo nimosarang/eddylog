@@ -77,7 +77,8 @@ class PostControllerTest {
         String json = objectMapper.writeValueAsString(request);
 
         //when
-        mockMvc.perform(post("/posts?authorization=eddy")
+        mockMvc.perform(post("/posts")
+                .header("authorization", "eddy")
                 .contentType(APPLICATION_JSON)
                 .content(json))
             .andExpect(status().isOk())

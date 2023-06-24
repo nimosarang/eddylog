@@ -1,8 +1,6 @@
 package com.eddylog.api.controller;
 
-import com.eddylog.api.exception.InvalidRequest;
-import com.eddylog.api.exception.PostNotFound;
-import com.eddylog.api.exception.eddylogException;
+import com.eddylog.api.exception.EddylogException;
 import com.eddylog.api.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -35,8 +33,8 @@ public class ExceptionController {
     }
 
     @ResponseBody
-    @ExceptionHandler(eddylogException.class)
-    public ResponseEntity<ErrorResponse> eddylogException(eddylogException e){
+    @ExceptionHandler(EddylogException.class)
+    public ResponseEntity<ErrorResponse> eddylogException(EddylogException e){
         int statusCode = e.getStatusCode();
 
         ErrorResponse body = ErrorResponse.builder()

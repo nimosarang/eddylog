@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,15 +35,22 @@ public class PostController {
 
     private final PostService postService;
 
+    @GetMapping("/test")
+    public String test(){
+        return "hello";
+    }
+
+    @GetMapping("/foo")
+    public String foo(){
+        return "foo";
+    }
+
     @PostMapping("/posts")
-    public void post(@RequestBody @Valid PostCreate request, @RequestParam String authorization) {
+    public void post(@RequestBody @Valid PostCreate request) {
         // 1. GET Parameter
         // 2. POST(body) value // 이 방법으로 인증 관련 데이터 받으면 PostCreate에 글 작성과 무관한 데이터가 들어가게 되니깐 설계가 무너진다
         // 3. Header
-        if (authorization.equals("eddy")) {
-            request.validate();
-            postService.write(request);
-        }
+        request.validate();
     }
 
     @GetMapping("/posts/{postId}")
@@ -63,5 +71,6 @@ public class PostController {
     @DeleteMapping("/posts/{postId}")
     public void delete(@PathVariable Long postId) {
         postService.delete(postId);
+
     }
 }

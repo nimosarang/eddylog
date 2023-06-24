@@ -5,15 +5,15 @@ import java.util.Map;
 import lombok.Getter;
 
 @Getter
-public abstract class eddylogException extends RuntimeException{
+public abstract class EddylogException extends RuntimeException{
 
     public final Map<String, String> validation = new HashMap<>();
 
-    public eddylogException(String message) {
+    public EddylogException(String message) {
         super(message);
     }
 
-    public eddylogException(String message, Throwable cause) {
+    public EddylogException(String message, Throwable cause) {
         super(message, cause);
     }
 
