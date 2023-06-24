@@ -34,32 +34,34 @@ public class PostController {
 
     private final PostService postService;
 
-    // 글 등록, 글 단건 조회, 글 리스트 조회
-    // CRUD -> Create, Read, Update, Delete
-
     @PostMapping("/posts")
-    public void post(@RequestBody @Valid PostCreate request) {
-        request.validate();
-        postService.write(request);
+    public void post(@RequestBody @Valid PostCreate request, @RequestParam String authorization) {
+        // 1. GET Parameter
+        // 2. POST(body) value // 이 방법으로 인증 관련 데이터 받으면 PostCreate에 글 작성과 무관한 데이터가 들어가게 되니깐 설계가 무너진다
+        // 3. Header
+        if (authorization.equals("eddy")) {
+            request.validate();
+            postService.write(request);
+        }
     }
 
     @GetMapping("/posts/{postId}")
-    public PostResponse get(@PathVariable Long postId){
+    public PostResponse get(@PathVariable Long postId) {
         return postService.get(postId);
     }
 
     @GetMapping("/posts")
-    public List<PostResponse> getList(@ModelAttribute PostSearch postSearch){
+    public List<PostResponse> getList(@ModelAttribute PostSearch postSearch) {
         return postService.getList(postSearch);
     }
 
     @PatchMapping("/posts/{postId}")
-    public void edit(@PathVariable Long postId, @RequestBody @Valid PostEdit request){
-       postService.edit(postId,request);
+    public void edit(@PathVariable Long postId, @RequestBody @Valid PostEdit request) {
+        postService.edit(postId, request);
     }
 
     @DeleteMapping("/posts/{postId}")
-    public void delete(@PathVariable Long postId){
+    public void delete(@PathVariable Long postId) {
         postService.delete(postId);
     }
 }

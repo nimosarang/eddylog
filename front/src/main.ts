@@ -1,7 +1,9 @@
-import './assets/main.css'
+// import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+
+import "normalize.css";
 
 // @ts-ignore
 import App from './App.vue'
