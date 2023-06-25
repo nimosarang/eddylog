@@ -1,8 +1,5 @@
 package com.eddylog.api.response;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import java.util.HashMap;
 import java.util.Map;
 import lombok.Builder;
 import lombok.Getter;

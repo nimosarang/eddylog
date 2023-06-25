@@ -1,0 +1,15 @@
+### 로그인
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "eddy@naver.com",
+  "password": "1234"
+}
+
+### 인증 페이지 요청
+
+GET http://localhost:8080/foo
+Content-Type: application/json
+Cookie: SESSION=5ee2163c-8000-4679-b773-f4d8d7154b9f;
