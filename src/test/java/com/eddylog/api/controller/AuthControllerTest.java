@@ -16,6 +16,7 @@ import com.eddylog.api.repository.SessionRepository;
 import com.eddylog.api.repository.UserRepository;
 import com.eddylog.api.request.Login;
 import com.eddylog.api.request.PostCreate;
+import com.eddylog.api.request.Signup;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
@@ -182,6 +183,24 @@ class AuthControllerTest {
                 .header("Authorization", session.getAccessToken() + "-o")
                 .contentType(APPLICATION_JSON))
             .andExpect(status().isUnauthorized())
+            .andDo(print());
+    }
+
+    @Test
+    @DisplayName("회원가입")
+    void test5() throws Exception {
+        //given
+        Signup signup = Signup.builder()
+            .email("eddy@naver.com")
+            .password("1234")
+            .name("eddy")
+            .build();
+
+        //expected
+        mockMvc.perform(post("/auth/signup")
+                .content(objectMapper.writeValueAsString(signup))
+                .contentType(APPLICATION_JSON))
+            .andExpect(status().isOk())
             .andDo(print());
     }
 }

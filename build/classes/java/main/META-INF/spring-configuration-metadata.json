@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "eddy",
+      "type": "com.eddylog.api.config.AppConfig",
+      "sourceType": "com.eddylog.api.config.AppConfig"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
