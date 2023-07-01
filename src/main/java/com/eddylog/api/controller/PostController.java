@@ -1,13 +1,12 @@
 package com.eddylog.api.controller;
 
-import com.eddylog.api.config.data.UserSession;
 import com.eddylog.api.request.PostCreate;
 import com.eddylog.api.request.PostEdit;
 import com.eddylog.api.request.PostSearch;
 import com.eddylog.api.response.PostResponse;
 import com.eddylog.api.service.PostService;
 import java.util.List;
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,24 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostController {
 
     private final PostService postService;
-
-    @GetMapping("/foo")
-    public Long foo(UserSession userSession){
-        log.info(">>>{}", userSession.id);
-        return userSession.id;
-    }
-
-    @GetMapping("/bar")
-    public String bar(){
-        return "인증이 필요없는 페이지";
-    }
-
-//    @PostMapping("/posts")
-//    public void post(@RequestBody @Valid PostCreate request,UserSession userSession) {
-//        //UserSession userSession 받아서 로그인(인가)된 사용자인지 검등도 하고
-//        request.validate();
-//        postService.write(request, userSession.id); //실제 글 작성한 사용자의 아이디를 넘겨준다
-//    }
 
     @PostMapping("/posts")
     public void post(@RequestBody @Valid PostCreate request) {

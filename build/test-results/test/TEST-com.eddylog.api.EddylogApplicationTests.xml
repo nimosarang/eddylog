@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.eddylog.api.EddylogApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-26T15:12:06" hostname="JinKyungui-MacBookAir.local" time="0.001">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.eddylog.api.EddylogApplicationTests" time="0.001"/>
+  <system-out><![CDATA[2023-06-27T00:12:06.299+09:00  INFO 5910 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eddylog.api.EddylogApplicationTests]: EddylogApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-06-27T00:12:06.303+09:00  INFO 5910 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eddylog.api.EddylogApplication for test class com.eddylog.api.EddylogApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.8)
+
+2023-06-27T00:12:06.311+09:00  INFO 5910 --- [    Test worker] c.eddylog.api.EddylogApplicationTests    : Starting EddylogApplicationTests using Java 17.0.7 with PID 5910 (started by eddy in /Users/eddy/Desktop/projects/eddylog/eddylog)
+2023-06-27T00:12:06.311+09:00  INFO 5910 --- [    Test worker] c.eddylog.api.EddylogApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2023-06-27T00:12:06.358+09:00  INFO 5910 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-27T00:12:06.364+09:00  INFO 5910 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 2 JPA repository interfaces.
+2023-06-27T00:12:06.395+09:00  INFO 5910 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-06-27T00:12:06.395+09:00  INFO 5910 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:eddylog user=SA
+2023-06-27T00:12:06.395+09:00  INFO 5910 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-06-27T00:12:06.396+09:00  INFO 5910 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-27T00:12:06.398+09:00  INFO 5910 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-06-27T00:12:06.415+09:00  INFO 5910 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-27T00:12:06.415+09:00  INFO 5910 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-27T00:12:06.472+09:00  WARN 5910 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-27T00:12:06.511+09:00  INFO 5910 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2.console'. Database available at 'jdbc:h2:mem:eddylog'
+2023-06-27T00:12:06.522+09:00  INFO 5910 --- [    Test worker] c.eddylog.api.EddylogApplicationTests    : Started EddylogApplicationTests in 0.217 seconds (process running for 2.588)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
