@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.024s</div>
+<div class="counter">0.025s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,13 +81,13 @@
 <tr>
 <td class="success">회원가입 성공</td>
 <td class="success">test1()</td>
-<td class="success">0.020s</td>
+<td class="success">0.022s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">회원가입 시 중복된 이메일</td>
 <td class="success">test2()</td>
-<td class="success">0.004s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -95,8 +95,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-06-27T00:12:06.544+09:00  INFO 5910 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eddylog.api.service.AuthServiceTest]: AuthServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-06-27T00:12:06.546+09:00  INFO 5910 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eddylog.api.EddylogApplication for test class com.eddylog.api.service.AuthServiceTest
+<pre>2023-07-02T23:30:23.243+09:00  INFO 13901 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eddylog.api.service.AuthServiceTest]: AuthServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-07-02T23:30:23.247+09:00  INFO 13901 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eddylog.api.EddylogApplication for test class com.eddylog.api.service.AuthServiceTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -106,20 +106,36 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.8)
 
-2023-06-27T00:12:06.558+09:00  INFO 5910 --- [    Test worker] c.eddylog.api.service.AuthServiceTest    : Starting AuthServiceTest using Java 17.0.7 with PID 5910 (started by eddy in /Users/eddy/Desktop/projects/eddylog/eddylog)
-2023-06-27T00:12:06.558+09:00  INFO 5910 --- [    Test worker] c.eddylog.api.service.AuthServiceTest    : The following 1 profile is active: &quot;test&quot;
-2023-06-27T00:12:06.605+09:00  INFO 5910 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-06-27T00:12:06.610+09:00  INFO 5910 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 2 JPA repository interfaces.
-2023-06-27T00:12:06.642+09:00  INFO 5910 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2023-06-27T00:12:06.642+09:00  INFO 5910 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:eddylog user=SA
-2023-06-27T00:12:06.642+09:00  INFO 5910 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2023-06-27T00:12:06.643+09:00  INFO 5910 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-06-27T00:12:06.646+09:00  INFO 5910 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2023-06-27T00:12:06.661+09:00  INFO 5910 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-06-27T00:12:06.661+09:00  INFO 5910 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-06-27T00:12:06.700+09:00  WARN 5910 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-06-27T00:12:06.730+09:00  INFO 5910 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2.console'. Database available at 'jdbc:h2:mem:eddylog'
-2023-06-27T00:12:06.738+09:00  INFO 5910 --- [    Test worker] c.eddylog.api.service.AuthServiceTest    : Started AuthServiceTest in 0.189 seconds (process running for 2.804)
+2023-07-02T23:30:23.257+09:00  INFO 13901 --- [    Test worker] c.eddylog.api.service.AuthServiceTest    : Starting AuthServiceTest using Java 17.0.7 with PID 13901 (started by eddy in /Users/eddy/Desktop/projects/eddylog/eddylog)
+2023-07-02T23:30:23.258+09:00  INFO 13901 --- [    Test worker] c.eddylog.api.service.AuthServiceTest    : The following 1 profile is active: &quot;test&quot;
+2023-07-02T23:30:23.310+09:00  INFO 13901 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-02T23:30:23.316+09:00  INFO 13901 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 2 JPA repository interfaces.
+2023-07-02T23:30:23.374+09:00  INFO 13901 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-07-02T23:30:23.374+09:00  INFO 13901 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:eddylog user=SA
+2023-07-02T23:30:23.374+09:00  INFO 13901 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-07-02T23:30:23.375+09:00  INFO 13901 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-02T23:30:23.377+09:00  INFO 13901 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-07-02T23:30:23.394+09:00  INFO 13901 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-02T23:30:23.394+09:00  INFO 13901 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-02T23:30:23.499+09:00  WARN 13901 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-02T23:30:23.529+09:00  INFO 13901 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2d4c9746, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@726615d7, org.springframework.security.web.context.SecurityContextHolderFilter@4ea4e0f3, org.springframework.security.web.header.HeaderWriterFilter@3b33b54e, org.springframework.security.web.authentication.logout.LogoutFilter@689f60ea, com.eddylog.api.config.filter.EmailPasswordAuthFilter@11932248, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c9ecd9e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@276af32d, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3ec72844, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46030cfd, org.springframework.security.web.access.ExceptionTranslationFilter@28de7e2e, org.springframework.security.web.access.intercept.AuthorizationFilter@12e4c6a0]
+2023-07-02T23:30:23.570+09:00  WARN 13901 --- [    Test worker] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Mvc [pattern='/favicon.ico']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-07-02T23:30:23.570+09:00  INFO 13901 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Mvc [pattern='/favicon.ico']
+2023-07-02T23:30:23.570+09:00  WARN 13901 --- [    Test worker] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Mvc [pattern='/error']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-07-02T23:30:23.570+09:00  INFO 13901 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Mvc [pattern='/error']
+2023-07-02T23:30:23.570+09:00  WARN 13901 --- [    Test worker] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.PathRequest$H2ConsoleRequestMatcher@1155ab2c. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-07-02T23:30:23.570+09:00  INFO 13901 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will not secure org.springframework.boot.autoconfigure.security.servlet.PathRequest$H2ConsoleRequestMatcher@1155ab2c
+2023-07-02T23:30:23.570+09:00  WARN 13901 --- [    Test worker] o.s.s.c.a.web.builders.WebSecurity       : 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2023-07-02T23:30:23.618+09:00  INFO 13901 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:eddylog'
+2023-07-02T23:30:23.643+09:00  INFO 13901 --- [    Test worker] c.eddylog.api.service.AuthServiceTest    : Started AuthServiceTest in 0.395 seconds (process running for 3.622)
 </pre>
 </span>
 </div>
@@ -131,7 +147,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 6. 27. 오전 12:12:07</p>
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 7. 2. 오후 11:30:23</p>
 </div>
 </div>
 </body>

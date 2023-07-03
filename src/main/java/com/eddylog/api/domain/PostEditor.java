@@ -1,6 +1,5 @@
 package com.eddylog.api.domain;
 
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter

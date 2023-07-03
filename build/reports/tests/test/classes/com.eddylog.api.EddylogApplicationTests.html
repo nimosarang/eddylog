@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.001s</div>
+<div class="counter">0.069s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">0.001s</td>
+<td class="success">0.069s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,8 +87,109 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-06-27T00:12:06.299+09:00  INFO 5910 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eddylog.api.EddylogApplicationTests]: EddylogApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-06-27T00:12:06.303+09:00  INFO 5910 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eddylog.api.EddylogApplication for test class com.eddylog.api.EddylogApplicationTests
+<pre>23:30:20.367 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [EddylogApplicationTests]: using SpringBootContextLoader
+23:30:20.371 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.eddylog.api.EddylogApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+23:30:20.371 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.eddylog.api.EddylogApplicationTests]: EddylogApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:30:20.380 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [EddylogApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+23:30:20.409 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [/Users/eddy/Desktop/projects/eddylog/eddylog/build/classes/java/main/com/eddylog/api/EddylogApplication.class]
+23:30:20.410 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.eddylog.api.EddylogApplication for test class com.eddylog.api.EddylogApplicationTests
+23:30:20.448 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils -- Could not load TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener]. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes available.
+java.lang.ExceptionInInitializerError: null
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.core.io.support.SpringFactoriesLoader$FactoryInstantiator.instantiate(SpringFactoriesLoader.java:382)
+	at org.springframework.core.io.support.SpringFactoriesLoader.instantiateFactory(SpringFactoriesLoader.java:228)
+	at org.springframework.core.io.support.SpringFactoriesLoader.load(SpringFactoriesLoader.java:206)
+	at org.springframework.core.io.support.SpringFactoriesLoader.load(SpringFactoriesLoader.java:178)
+	at org.springframework.test.context.util.TestContextSpringFactoriesUtils.loadFactoryImplementations(TestContextSpringFactoriesUtils.java:71)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListeners(AbstractTestContextBootstrapper.java:198)
+	at org.springframework.boot.test.context.SpringBootTestContextBootstrapper.getDefaultTestExecutionListeners(SpringBootTestContextBootstrapper.java:128)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(AbstractTestContextBootstrapper.java:128)
+	at org.springframework.test.context.TestContextManager.&lt;init&gt;(TestContextManager.java:131)
+	at org.springframework.test.context.TestContextManager.&lt;init&gt;(TestContextManager.java:113)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore.lambda$getOrComputeIfAbsent$4(ExtensionValuesStore.java:86)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore$MemoizingSupplier.computeValue(ExtensionValuesStore.java:223)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore$MemoizingSupplier.get(ExtensionValuesStore.java:211)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore$StoredValue.evaluate(ExtensionValuesStore.java:191)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore$StoredValue.access$100(ExtensionValuesStore.java:171)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore.getOrComputeIfAbsent(ExtensionValuesStore.java:89)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore.getOrComputeIfAbsent(ExtensionValuesStore.java:93)
+	at org.junit.jupiter.engine.execution.NamespaceAwareStore.getOrComputeIfAbsent(NamespaceAwareStore.java:61)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.getTestContextManager(SpringExtension.java:294)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.beforeAll(SpringExtension.java:113)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllCallbacks$12(ClassBasedTestDescriptor.java:395)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllCallbacks(ClassBasedTestDescriptor.java:395)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:211)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:84)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:148)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Caused by: java.lang.IllegalStateException: MicrometerObservationRegistryTestExecutionListener requires micrometer-observation 1.10.8 or higher
+	at org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener.&lt;clinit&gt;(MicrometerObservationRegistryTestExecutionListener.java:80)
+	... 82 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/junit/platform/launcher/TestExecutionListener
+	at org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener.&lt;clinit&gt;(MicrometerObservationRegistryTestExecutionListener.java:76)
+	... 82 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.junit.platform.launcher.TestExecutionListener
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	... 83 common frames omitted
+23:30:20.454 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [EddylogApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, WithSecurityContextTestExecutionListener, EventPublishingTestExecutionListener, ReactorContextTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+23:30:20.455 [Test worker] DEBUG org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener -- Before test class: class [EddylogApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -98,20 +199,37 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.8)
 
-2023-06-27T00:12:06.311+09:00  INFO 5910 --- [    Test worker] c.eddylog.api.EddylogApplicationTests    : Starting EddylogApplicationTests using Java 17.0.7 with PID 5910 (started by eddy in /Users/eddy/Desktop/projects/eddylog/eddylog)
-2023-06-27T00:12:06.311+09:00  INFO 5910 --- [    Test worker] c.eddylog.api.EddylogApplicationTests    : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-06-27T00:12:06.358+09:00  INFO 5910 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-06-27T00:12:06.364+09:00  INFO 5910 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 2 JPA repository interfaces.
-2023-06-27T00:12:06.395+09:00  INFO 5910 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2023-06-27T00:12:06.395+09:00  INFO 5910 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:eddylog user=SA
-2023-06-27T00:12:06.395+09:00  INFO 5910 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2023-06-27T00:12:06.396+09:00  INFO 5910 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-06-27T00:12:06.398+09:00  INFO 5910 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2023-06-27T00:12:06.415+09:00  INFO 5910 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-06-27T00:12:06.415+09:00  INFO 5910 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-06-27T00:12:06.472+09:00  WARN 5910 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-06-27T00:12:06.511+09:00  INFO 5910 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2.console'. Database available at 'jdbc:h2:mem:eddylog'
-2023-06-27T00:12:06.522+09:00  INFO 5910 --- [    Test worker] c.eddylog.api.EddylogApplicationTests    : Started EddylogApplicationTests in 0.217 seconds (process running for 2.588)
+2023-07-02T23:30:20.576+09:00  INFO 13901 --- [    Test worker] c.eddylog.api.EddylogApplicationTests    : Starting EddylogApplicationTests using Java 17.0.7 with PID 13901 (started by eddy in /Users/eddy/Desktop/projects/eddylog/eddylog)
+2023-07-02T23:30:20.577+09:00  INFO 13901 --- [    Test worker] c.eddylog.api.EddylogApplicationTests    : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-07-02T23:30:20.909+09:00  INFO 13901 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-02T23:30:20.938+09:00  INFO 13901 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 2 JPA repository interfaces.
+2023-07-02T23:30:21.131+09:00  INFO 13901 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-02T23:30:21.219+09:00  INFO 13901 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:eddylog user=SA
+2023-07-02T23:30:21.221+09:00  INFO 13901 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-02T23:30:21.263+09:00  INFO 13901 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-02T23:30:21.284+09:00  INFO 13901 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-07-02T23:30:21.406+09:00  INFO 13901 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-07-02T23:30:21.706+09:00  INFO 13901 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-02T23:30:21.709+09:00  INFO 13901 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-02T23:30:21.935+09:00  WARN 13901 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-02T23:30:22.013+09:00  INFO 13901 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@32d46229, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35198da3, org.springframework.security.web.context.SecurityContextHolderFilter@24e31f06, org.springframework.security.web.header.HeaderWriterFilter@53654b2d, org.springframework.security.web.authentication.logout.LogoutFilter@7c0b792e, com.eddylog.api.config.filter.EmailPasswordAuthFilter@21dd91da, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d43f205, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2da0770, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@2a15bbf3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f08c343, org.springframework.security.web.access.ExceptionTranslationFilter@1ecd09d5, org.springframework.security.web.access.intercept.AuthorizationFilter@760d6350]
+2023-07-02T23:30:22.093+09:00  WARN 13901 --- [    Test worker] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Mvc [pattern='/favicon.ico']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-07-02T23:30:22.094+09:00  INFO 13901 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Mvc [pattern='/favicon.ico']
+2023-07-02T23:30:22.094+09:00  WARN 13901 --- [    Test worker] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Mvc [pattern='/error']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-07-02T23:30:22.094+09:00  INFO 13901 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Mvc [pattern='/error']
+2023-07-02T23:30:22.094+09:00  WARN 13901 --- [    Test worker] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.PathRequest$H2ConsoleRequestMatcher@1512efe9. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-07-02T23:30:22.094+09:00  INFO 13901 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will not secure org.springframework.boot.autoconfigure.security.servlet.PathRequest$H2ConsoleRequestMatcher@1512efe9
+2023-07-02T23:30:22.096+09:00  WARN 13901 --- [    Test worker] o.s.s.c.a.web.builders.WebSecurity       : 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2023-07-02T23:30:22.225+09:00  INFO 13901 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:eddylog'
+2023-07-02T23:30:22.321+09:00  INFO 13901 --- [    Test worker] c.eddylog.api.EddylogApplicationTests    : Started EddylogApplicationTests in 1.842 seconds (process running for 2.3)
 </pre>
 </span>
 </div>
@@ -123,7 +241,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 6. 27. 오전 12:12:07</p>
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 7. 2. 오후 11:30:23</p>
 </div>
 </div>
 </body>

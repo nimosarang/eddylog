@@ -1,6 +1,5 @@
 package com.eddylog.api.domain;
 
-import com.eddylog.api.request.PostEdit;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

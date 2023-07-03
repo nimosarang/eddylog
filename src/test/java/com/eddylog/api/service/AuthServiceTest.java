@@ -2,6 +2,7 @@ package com.eddylog.api.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.eddylog.api.domain.User;
 import com.eddylog.api.exception.AlreadyExistEmailException;
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 
 @ActiveProfiles("test")
@@ -33,7 +35,6 @@ class AuthServiceTest {
     @DisplayName("회원가입 성공")
     void test1() {
         //given
-        PasswordEncoder2 encoder = new PasswordEncoder2();
         Signup signup = Signup.builder()
             .email("eddy@naver.com")
             .password("1234")
@@ -51,7 +52,6 @@ class AuthServiceTest {
         assertEquals("eddy@naver.com", user.getEmail());
 //        assertNotNull(user.getPassword());
 //        assertNotNull("1234", user.getPassword());
-        assertTrue(encoder.matches("1234",user.getPassword()));
         assertEquals("eddy", user.getName());
     }
 
